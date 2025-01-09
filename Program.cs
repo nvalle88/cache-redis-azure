@@ -248,7 +248,7 @@ namespace cache_redis_azure
         static void IngresarValor(IDatabase db, string codigoContrato, object valor)
         {
             var v = JsonConvert.SerializeObject(valor);
-            db.StringSet(codigoContrato, v,,,,);
+            db.StringSet(codigoContrato, v);
         }
         static void IngresarValor(IDatabase db, List<string> clavesGeneradas)
         {
@@ -336,7 +336,7 @@ namespace cache_redis_azure
             // Crear el cliente HTTP
             var client = new HttpClient();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVVNSQUJFRkFSTSIsInN1YiI6IlVTUkFCRUZBUk0iLCJuYmYiOjE3MzUzMjczMTMsImV4cCI6MTczNTM2MzMxMywiaXNzIjoiU2FsdWQgUy5BLiIsImF1ZCI6IjhhM2U0ZDEwYjJiMjRkNmI5YzU1Yzg4YTk1ZmRjMzI0In0.3v3VI2MCwxDcHgLGEiOxguLQX8qICoFGAgYjFOuFzig");
+            client.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiVVNSQUJFRkFSTSIsInN1YiI6IlVTUkFCRUZBUk0iLCJuYmYiOjE3MzYzNzYxODYsImV4cCI6MTczNjQxMjE4NiwiaXNzIjoiU2FsdWQgUy5BLiIsImF1ZCI6IjhhM2U0ZDEwYjJiMjRkNmI5YzU1Yzg4YTk1ZmRjMzI0In0.jXzPqvNQf_D-yFyfJhSJyap5TM6bsq9_pgxZc7zxqWc");
             client.DefaultRequestHeaders.Add("CodigoAplicacion", "3");
             client.DefaultRequestHeaders.Add("CodigoPlataforma", "7");
             client.DefaultRequestHeaders.Add("SistemaOperativo", sistemaOperativo);
